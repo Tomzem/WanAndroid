@@ -1,6 +1,7 @@
 package com.wanandroid.tomzem.loader;
 
 import android.content.Context;
+import android.net.Uri;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -21,6 +22,8 @@ public class GlideImageLoader extends ImageLoader {
          切记不要胡乱强转！
          */
         Glide.with(context).load(path).into(imageView);
-
+        //用fresco加载图片简单用法，记得要写下面的createImageView方法
+//        Uri uri = Uri.parse((String) path);
+//        imageView.setImageURI(uri);
     }
 }
