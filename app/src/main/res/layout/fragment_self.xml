@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lzy.widget.PullZoomView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pzv_self"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_self_header" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:tag="content">
+
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/fbt_self_collection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="私人珍藏"
+                android:textColor="@color/colorWhite"
+                android:textSize="17dp" />
+
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/fbt_self_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fbt_self_collection"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="关于应用"
+                android:textColor="@color/colorWhite"
+                android:textSize="17dp"/>
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/fbt_self_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fbt_self_about"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="35dp"
+                android:gravity="center"
+                android:text="前往登陆"
+                app:buttonColor="@color/fbutton_color_peter_river"
+                android:textColor="@color/colorWhite"
+                android:textSize="17dp"
+                />
+
+            <!--app:buttonColor="@color/fbutton_color_emerald"-->
+            <!--app:shadowColor="@color/fbutton_color_green_sea"-->
+            <!--app:cornerRadius="3dp"-->
+            <!--app:shadowHeight="2dp"-->
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</com.lzy.widget.PullZoomView>

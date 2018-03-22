@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="@drawable/style_top_shadow">
+
+    <LinearLayout
+        android:id="@+id/tab_index"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/ibt_index"
+            android:layout_width="wrap_content"
+            android:layout_height= "wrap_content"
+            android:src="@mipmap/ic_index_normal"
+            android:clickable="false"
+            android:background="#00000000"
+            android:elevation="40dp"/>
+        <TextView
+            android:id="@+id/tv_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:text="主页"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_class"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/ibt_class"
+            android:layout_width="wrap_content"
+            android:layout_height= "wrap_content"
+            android:src="@mipmap/ic_class_normal"
+            android:clickable="false"
+            android:background="#00000000"/>
+        <TextView
+            android:id="@+id/tv_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:text="分类"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_navigation"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/ibt_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height= "wrap_content"
+            android:src="@mipmap/ic_navigation_normal"
+            android:clickable="false"
+            android:background="#00000000"/>
+        <TextView
+            android:id="@+id/tv_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:text="导航"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_self"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/ibt_self"
+            android:layout_width="wrap_content"
+            android:layout_height= "wrap_content"
+            android:src="@mipmap/ic_self_normal"
+            android:clickable="false"
+            android:background="#00000000"/>
+        <TextView
+            android:id="@+id/tv_self"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:text="个人"/>
+    </LinearLayout>
+
+</LinearLayout>

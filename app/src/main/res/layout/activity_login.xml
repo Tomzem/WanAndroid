@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wanandroid.tomzem.activity.login.view.LoginActivity">
+
+    <include
+        layout="@layout/layout_head_login"/>
+
+    <com.xw.repo.XEditText
+        android:id="@+id/ed_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:hint="用户名"/>
+
+    <com.xw.repo.XEditText
+
+        android:id="@+id/ed_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:hint="密码"
+        android:inputType="textPassword"/>
+
+    <com.xw.repo.XEditText
+        android:visibility="gone"
+        android:id="@+id/ed_password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:hint="确认密码"
+        android:inputType="textPassword"/>
+
+
+    <com.dd.processbutton.iml.GenerateProcessButton
+        android:id="@+id/btnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="登陆"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        custom:pb_textComplete="登陆成功"
+        custom:pb_textProgress="加载中"
+        custom:pb_textError="Error"/>
+
+</LinearLayout>
