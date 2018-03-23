@@ -3,8 +3,10 @@ package com.wanandroid.tomzem.fragmentlayout.FragmentIndex.model;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import com.wanandroid.tomzem.bean.IndexArticle;
 import com.wanandroid.tomzem.bean.IndexImage;
 import com.wanandroid.tomzem.bean.JsonResponse;
+import com.wanandroid.tomzem.bean.ListResponse;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.OnCallBack;
 import com.wanandroid.tomzem.http.APIServer;
 import com.wanandroid.tomzem.http.ServiceManager;
@@ -23,37 +25,66 @@ import retrofit2.Response;
 
 public class FragmentModelImpl implements FragmentModel{
 
-    private Call<JsonResponse> call;
-    private List<LinkedTreeMap<String, String>> indexImages;
+    private Call<JsonResponse<List<IndexImage>>> callImage;
+    private Call<JsonResponse<ListResponse<IndexArticle>>> callArticle;
 
     @Override
     public void getImagesPath(final OnCallBack.OnImagesPathCallBack onImagesPathCallBack) {
-        call = ServiceManager.getInstance()
+        callImage = ServiceManager.getInstance()
                 .getService(APIServer.class)
                 .getImagesBanner();
-        call.enqueue(new Callback<JsonResponse>() {
+        callImage.enqueue(new Callback<JsonResponse<List<IndexImage>>>() {
             @Override
-            public void onResponse(Call<JsonResponse> call, Response<JsonResponse> response) {
+            public void onResponse(Call<JsonResponse<List<IndexImage>>> call, Response<JsonResponse<List<IndexImage>>> response) {
                 if (response == null||response.body() == null){
-                    onImagesPathCallBack.OnFailure();
+                    onImagesPathCallBack.onFailure();
                     return;
                 }
                 if (response.body().getData() != null){
-                    indexImages = (List<LinkedTreeMap<String, String>>) response.body().getData();
+                    List<IndexImage> images = response.body().getData();
                     List<String> image = new ArrayList<>();
                     List<String> titles = new ArrayList<>();
-                    for (LinkedTreeMap<String, String> indexImage : indexImages){
-                        image.add(indexImage.get("imagePath"));
-                        titles.add(indexImage.get("title"));
+                    for (IndexImage indexImage: images) {
+                        image.add(indexImage.getImagePath());
+                        titles.add(indexImage.getTitle());
                     }
                     onImagesPathCallBack.onSeccess(image,titles);
+                }else{
+                    onImagesPathCallBack.onFailure();
                 }
             }
 
             @Override
-            public void onFailure(Call<JsonResponse> call, Throwable t) {
-                onImagesPathCallBack.OnFailure();
+            public void onFailure(Call<JsonResponse<List<IndexImage>>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getIndexArticle(int postion, final OnCallBack.OnIndexArticleCallBack onIndexArticleCallBack) {
+        callArticle = ServiceManager.getInstance()
+                .getService(APIServer.class)
+                .getIndexArticleList(postion);
+        callArticle.enqueue(new Callback<JsonResponse<ListResponse<IndexArticle>>>() {
+            @Override
+            public void onResponse(Call<JsonResponse<ListResponse<IndexArticle>>> call, Response<JsonResponse<ListResponse<IndexArticle>>> response) {
+                if (response == null|| response.body() == null){
+                    onIndexArticleCallBack.onFailure();
+                    return;
+                }
+                if (response.body().getData() != null){
+                    onIndexArticleCallBack.onSeccess(response.body().getData().getDatas());
+                }else{
+                    onIndexArticleCallBack.onFailure();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonResponse<ListResponse<IndexArticle>>> call, Throwable t) {
+                onIndexArticleCallBack.onFailure();
             }
         });
     }
 }
+

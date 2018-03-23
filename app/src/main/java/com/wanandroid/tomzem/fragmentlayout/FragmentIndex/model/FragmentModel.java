@@ -8,4 +8,5 @@ import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.OnCallBack;
 
 public interface FragmentModel {
     void getImagesPath(OnCallBack.OnImagesPathCallBack onImagesPathCallBack);
+    void getIndexArticle(int postion, OnCallBack.OnIndexArticleCallBack onIndexArticleCallBack);
 }

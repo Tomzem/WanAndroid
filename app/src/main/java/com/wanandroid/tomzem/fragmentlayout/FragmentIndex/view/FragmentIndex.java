@@ -34,6 +34,7 @@ public class FragmentIndex extends BaseFragment implements FragmentIndexView{
     public void initView() {
         fragmentIndexPresenter = new FragmentIndexPresenterImpl(this);
         fragmentIndexPresenter.getImagesBanner();
+        fragmentIndexPresenter.getIndexArticle(0);
     }
 
     @Override

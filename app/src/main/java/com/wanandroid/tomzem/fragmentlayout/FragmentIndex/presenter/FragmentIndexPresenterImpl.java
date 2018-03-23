@@ -1,5 +1,6 @@
 package com.wanandroid.tomzem.fragmentlayout.FragmentIndex.presenter;
 
+import com.wanandroid.tomzem.bean.IndexArticle;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.OnCallBack;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.model.FragmentModelImpl;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.view.FragmentIndex;
@@ -28,7 +29,22 @@ public class FragmentIndexPresenterImpl implements FragmentIndexPresenter{
             }
 
             @Override
-            public void OnFailure() {
+            public void onFailure() {
+
+            }
+        });
+    }
+
+    @Override
+    public void getIndexArticle(int position) {
+        fragmentModel.getIndexArticle(position, new OnCallBack.OnIndexArticleCallBack() {
+            @Override
+            public void onSeccess(List<IndexArticle> articleList) {
+
+            }
+
+            @Override
+            public void onFailure() {
 
             }
         });

@@ -6,4 +6,5 @@ package com.wanandroid.tomzem.fragmentlayout.FragmentIndex.presenter;
 
 public interface FragmentIndexPresenter {
     void getImagesBanner();
+    void getIndexArticle(int position);
 }
