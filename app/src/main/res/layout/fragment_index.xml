@@ -12,6 +12,9 @@
         android:layout_weight="1"
         android:divider="@null"
         android:dividerHeight="2dp"
+        android:scrollbars="none"
+        android:fadeScrollbars="false"
+        android:listSelector="@color/colorListViewBackGround"
         tools:listitem="@layout/item_list_index_article"
         tools:listheader="@layout/item_header_index"/>
 
