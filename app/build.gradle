@@ -74,7 +74,7 @@ dependencies {
     //图片轮播
     compile 'com.youth.banner:banner:1.4.10'
     //上拉刷新下拉加载
-    implementation 'cn.bingoogolapple:bga-refreshlayout:1.1.8@aar'
+    compile 'com.lcodecorex:tkrefreshlayout:1.0.7'
     //收藏
     compile 'com.wx.goodview:goodview:1.0.0'
 }

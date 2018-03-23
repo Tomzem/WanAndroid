@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cn.bingoogolapple.refreshlayout.BGARefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rl_refresh_index"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_index_article"
+
+    <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+        android:id="@+id/trl_refresh"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="@null"
-        android:dividerHeight="2dp"
-        android:scrollbars="none"
-        android:fadeScrollbars="false"
-        android:listSelector="@color/colorListViewBackGround"
-        tools:listitem="@layout/item_list_index_article"
-        tools:listheader="@layout/item_header_index"/>
+        android:layout_height="match_parent">
 
-</cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+        <ListView
+            android:id="@+id/lv_index_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:dividerHeight="2dp"
+            android:fadeScrollbars="false"
+            android:listSelector="@color/colorListViewBackGround"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            tools:listheader="@layout/item_header_index"
+            tools:listitem="@layout/item_list_index_article" />
+    </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+</LinearLayout>

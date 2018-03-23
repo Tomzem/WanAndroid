@@ -185,12 +185,10 @@ public class MainActivity extends BaseActivity {
         super.onStart();
         int flag = getIntent().getIntExtra("pageFlag", 0);
         setSelect(flag);
-        EventBus.getDefault().register(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 }
