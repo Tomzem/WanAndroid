@@ -1,8 +1,10 @@
 package com.wanandroid.tomzem.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.wanandroid.tomzem.R;
 import com.wanandroid.tomzem.base.CommomViewHolder;
@@ -39,11 +41,13 @@ public class IndexArticleAdapter extends CommonAdapter<IndexArticle> {
         holder.setText(R.id.tv_title_index, title);
         holder.setText(R.id.tv_chapter_index, chapter);
 
-        holder.getView(R.id.img_zan_index).setOnClickListener(new View.OnClickListener() {
+        final ImageView imageView = holder.getView(R.id.img_zan_index);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goodView.setText("收藏成功");
+                goodView.setTextInfo("收藏成功",R.color.red_error,13);
                 goodView.show(v);
+                imageView.setImageResource(R.mipmap.ic_collection_checked);
             }
         });
 

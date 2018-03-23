@@ -40,6 +40,7 @@ public class FragmentIndexPresenterImpl implements FragmentIndexPresenter{
         fragmentModel.getIndexArticle(position, new OnCallBack.OnIndexArticleCallBack() {
             @Override
             public void onSeccess(List<IndexArticle> articleList) {
+
                 fragmentIndex.showArticleList(articleList);
             }
 

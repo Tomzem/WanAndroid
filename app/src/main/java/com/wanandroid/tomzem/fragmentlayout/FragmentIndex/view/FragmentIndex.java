@@ -22,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import cn.bingoogolapple.refreshlayout.BGAMeiTuanRefreshViewHolder;
+import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout.BGARefreshLayoutDelegate;
 import cn.bingoogolapple.refreshlayout.BGARefreshViewHolder;
@@ -43,7 +44,7 @@ public class FragmentIndex extends BaseFragment implements FragmentIndexView,BGA
     private FragmentIndexPresenterImpl fragmentIndexPresenter;
     private IndexArticleAdapter mIndexArticleAdapter;
     private int INDEX_POSITION = 0;
-
+    private List<IndexArticle> articles;
 
     @Override
     public int getLayoutRes() {
@@ -56,18 +57,12 @@ public class FragmentIndex extends BaseFragment implements FragmentIndexView,BGA
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_header_index, mLvIndexArticle, false);
         banner = view.findViewById(R.id.banner);
         mLvIndexArticle.addHeaderView(view);
-        mIndexArticleAdapter = new IndexArticleAdapter(new ArrayList<IndexArticle>(), mContext, R.layout.item_list_index_article);
+        articles = new ArrayList<IndexArticle>();
+        mIndexArticleAdapter = new IndexArticleAdapter(articles, mContext, R.layout.item_list_index_article);
         mLvIndexArticle.setAdapter(mIndexArticleAdapter);
-//https://github.com/bingoogolapple/BGARefreshLayout-Android/blob/master/demo/src/main/java/cn/bingoogolapple/refreshlayout/demo/ui/activity/SwipeRecyclerViewActivity.java
-        // 为BGARefreshLayout 设置代理
-//        mRefreshLayout.setDelegate(this);
-//        // 设置下拉刷新和上拉加载更多的风格     参数1：应用程序上下文，参数2：是否具有上拉加载更多功能
-//        BGAMeiTuanRefreshViewHolder refreshViewHolder = new BGAMeiTuanRefreshViewHolder(mContext, true);
-//        refreshViewHolder.setPullDownImageResource();
-//        // 设置下拉刷新和上拉加载更多的风格
-//        mRefreshLayout.setRefreshViewHolder(refreshViewHolder);
-//        mRefreshLayout.setCustomHeaderView(banner, true);
-
+        //https://github.com/bingoogolapple/BGARefreshLayout-Android/blob/master/demo/src/main/java/cn/bingoogolapple/refreshlayout/demo/ui/activity/SwipeRecyclerViewActivity.java
+        mRefreshLayout.setDelegate(this);
+        mRefreshLayout.setRefreshViewHolder(new BGANormalRefreshViewHolder(mContext, true));
         initData();
     }
 
@@ -98,7 +93,8 @@ public class FragmentIndex extends BaseFragment implements FragmentIndexView,BGA
     @Override
     public void showArticleList(List<IndexArticle> articleList) {
         if (articleList != null|| articleList.size() != 0){
-            mIndexArticleAdapter.onDataChange(articleList);
+            articles.addAll(articleList);
+            mIndexArticleAdapter.onDataChange(articles);
         }
     }
 
