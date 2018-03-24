@@ -1,5 +1,6 @@
 package com.wanandroid.tomzem.http;
 
+import com.wanandroid.tomzem.bean.ClassDatas;
 import com.wanandroid.tomzem.bean.IndexArticle;
 import com.wanandroid.tomzem.bean.IndexImage;
 import com.wanandroid.tomzem.bean.JsonResponse;
@@ -48,6 +49,11 @@ public interface APIServer {
     @GET("banner/json")
     Call<JsonResponse<List<IndexImage>>> getImagesBanner();
 
+    /**
+     * 获取首页文章列表
+     * @param position
+     * @return
+     */
     @GET("article/list/{position}/json")
     Call<JsonResponse<ListResponse<IndexArticle>>> getIndexArticleList(@Path("position") int position);
 
@@ -57,4 +63,11 @@ public interface APIServer {
      */
     @GET("lg/collect/usertools/json")
     Call<JsonResponse> getCoolectList();
+
+    /**
+     * 获取分类目录
+     * @return
+     */
+    @GET("tree/json")
+    Call<JsonResponse<List<ClassDatas>>> getClassData();
 }

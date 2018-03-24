@@ -31,7 +31,7 @@ public class WebViewActivity extends BaseActivity {
 
     private WebSettings mWebSettings;
     private String mUrl;
-    private String mTitle = "加载中...";
+    private String mTitle = "";
 
     @Override
     protected int getContentResId() {
@@ -77,7 +77,7 @@ public class WebViewActivity extends BaseActivity {
                 if (newProgress < 100) {
                     mPbLoadWeb.setVisibility(View.VISIBLE);
                     mPbLoadWeb.setProgress(newProgress);
-                    mTvWebViewTitle.setText(newProgress + "%" + mTitle);
+                    mTvWebViewTitle.setText(newProgress + "%加载中...");
                 } else if (newProgress == 100) {
                     mPbLoadWeb.setVisibility(View.GONE);
                     mTvWebViewTitle.setText(mTitle);

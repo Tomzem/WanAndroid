@@ -90,7 +90,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
     public void showToast(String msg) {
         if (!isFinishing()) {
             if (toast == null) {
-                toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
+                toast = Toast.makeText(this.getApplicationContext(), msg, Toast.LENGTH_SHORT);
             } else {
                 toast.setText(msg);
             }

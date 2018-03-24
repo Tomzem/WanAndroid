@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <iammert.com.expandablelib.ExpandableLayout
+        android:id="@+id/el_class_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="2"/>
-</android.support.constraint.ConstraintLayout>
+        app:childLayout="@layout/item_child_class"
+        app:parentLayout="@layout/item_parent_class"/>
+
+    </ScrollView>
+</LinearLayout>
