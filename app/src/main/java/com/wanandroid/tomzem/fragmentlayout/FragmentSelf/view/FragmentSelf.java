@@ -43,6 +43,7 @@ public class FragmentSelf extends BaseFragment{
     TextView mTvUserName;
 
     private Context mContext;
+    private final static int REQUEST_CODE = 3;
 
     @Override
     public void setProgressCancelListener(DialogInterface.OnCancelListener onCancelListener) {
@@ -75,7 +76,7 @@ public class FragmentSelf extends BaseFragment{
                     LoginOut();
                 }else{
                     Intent intent = new Intent(mContext, LoginActivity.class);
-                    startActivity(intent);
+                    this.getActivity().startActivityForResult(intent, REQUEST_CODE);
                 }
                 break;
         }

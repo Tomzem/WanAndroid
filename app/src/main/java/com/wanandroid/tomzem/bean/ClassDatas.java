@@ -1,5 +1,6 @@
 package com.wanandroid.tomzem.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * Created by Tomzem on 2018/3/24.
  */
 
-public class ClassDatas {
+public class ClassDatas implements Serializable{
     private List<ClassDatas> children; //子菜单
     private int courseId;
     private int id;

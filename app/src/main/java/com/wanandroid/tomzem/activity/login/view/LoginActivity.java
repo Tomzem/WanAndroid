@@ -145,9 +145,6 @@ public class LoginActivity extends BaseActivity implements LoginView{
 
     @Override
     public void jump2Main() {
-        Intent intent2Main = new Intent(mContext, MainActivity.class);
-        intent2Main.putExtra("pageFlag", 3);
-        startActivity(intent2Main);
         finish();
     }
 

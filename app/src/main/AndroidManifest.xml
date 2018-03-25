@@ -25,9 +25,10 @@
         </activity>
         <activity
             android:name=".activity.main.MainActivity"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTask" />
         <activity android:name=".activity.login.view.LoginActivity" />
-        <activity android:name=".activity.webview.view.WebViewActivity"></activity>
+        <activity android:name=".activity.webview.view.WebViewActivity" />
+        <activity android:name=".activity.ClassArticle.view.ArticleListActivity"></activity>
     </application>
 
 </manifest>

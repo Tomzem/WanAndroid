@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        layout="@layout/layout_article_list"/>
 
-    <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
-        android:id="@+id/trl_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ListView
-            android:id="@+id/lv_index_article"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@null"
-            android:dividerHeight="2dp"
-            android:fadeScrollbars="false"
-            android:listSelector="@color/colorListViewBackGround"
-            android:scrollbars="none"
-            android:overScrollMode="never"
-            tools:listheader="@layout/item_header_index"
-            tools:listitem="@layout/item_list_index_article" />
-    </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
 </LinearLayout>

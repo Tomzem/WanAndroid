@@ -1,6 +1,7 @@
 package com.wanandroid.tomzem.fragmentlayout.FragmentIndex;
 
 import com.wanandroid.tomzem.bean.IndexArticle;
+import com.wanandroid.tomzem.bean.IndexImage;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 public interface OnCallBack {
     interface OnImagesPathCallBack{
-        void onSeccess(List<String> imagesPath,List<String> titles);
+        void onSeccess(List<IndexImage> images);
         void onFailure();
     }
 

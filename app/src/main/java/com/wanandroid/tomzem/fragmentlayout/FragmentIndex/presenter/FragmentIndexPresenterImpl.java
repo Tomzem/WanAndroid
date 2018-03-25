@@ -1,6 +1,7 @@
 package com.wanandroid.tomzem.fragmentlayout.FragmentIndex.presenter;
 
 import com.wanandroid.tomzem.bean.IndexArticle;
+import com.wanandroid.tomzem.bean.IndexImage;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.OnCallBack;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.model.FragmentModelImpl;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.view.FragmentIndex;
@@ -24,8 +25,8 @@ public class FragmentIndexPresenterImpl implements FragmentIndexPresenter{
     public void getImagesBanner() {
         fragmentModel.getImagesPath(new OnCallBack.OnImagesPathCallBack() {
             @Override
-            public void onSeccess(List<String> imagesPath,List<String> titles) {
-                fragmentIndex.showBanner(imagesPath,titles);
+            public void onSeccess(List<IndexImage> images) {
+                fragmentIndex.showBanner(images);
             }
 
             @Override

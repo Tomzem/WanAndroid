@@ -2,7 +2,6 @@ package com.wanandroid.tomzem.fragmentlayout.FragmentIndex.view;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,22 +12,23 @@ import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.lcodecore.tkrefreshlayout.footer.BallPulseView;
 import com.wanandroid.tomzem.R;
-import com.wanandroid.tomzem.activity.webview.view.WebViewActivity;
 import com.wanandroid.tomzem.adapter.IndexArticleAdapter;
 import com.wanandroid.tomzem.base.BaseFragment;
 import com.wanandroid.tomzem.bean.IndexArticle;
+import com.wanandroid.tomzem.bean.IndexImage;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.presenter.FragmentIndexPresenterImpl;
 import com.wanandroid.tomzem.loader.GlideImageLoader;
+import com.wanandroid.tomzem.utils.Jump2WebView;
 import com.wanandroid.tomzem.utils.NetUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnItemClick;
 
 /**
  * Created by Tomzem on 2018/3/17.
@@ -105,7 +105,13 @@ public class FragmentIndex extends BaseFragment implements FragmentIndexView, Ad
     }
 
     @Override
-    public void showBanner(final List<String> imagesPath,List<String> titles) {
+    public void showBanner(final List<IndexImage> images) {
+        List<String> imagesPath = new ArrayList<>();
+        List<String> titles = new ArrayList<>();
+        for(IndexImage image : images){
+            imagesPath.add(image.getImagePath());
+            titles.add(image.getTitle());
+        }
         banner.setImageLoader(new GlideImageLoader());
         banner.setImages(imagesPath);
         //设置banner样式
@@ -115,11 +121,20 @@ public class FragmentIndex extends BaseFragment implements FragmentIndexView, Ad
         banner.setBannerTitles(titles);
         banner.setDelayTime(3500);
         banner.start();
+        banner.setOnBannerClickListener(new OnBannerClickListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Jump2WebView.jump2Web(mContext, images.get(position-1).getUrl());
+            }
+        });
     }
 
     @Override
     public void showArticleList(List<IndexArticle> articleList) {
-        if (articleList != null|| articleList.size() != 0){
+        if (articleList != null){
+            if(articleList.size() == 0){
+                showToast("已无更多文章加载");
+            }
             articles.addAll(articleList);
             mIndexArticleAdapter.onDataChange(articles);
             if (mTrlRefresh.isShown()){
@@ -130,8 +145,7 @@ public class FragmentIndex extends BaseFragment implements FragmentIndexView, Ad
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent jump2WebView = new Intent(mContext, WebViewActivity.class);
-        jump2WebView.putExtra("web_view_url",articles.get(i-1).getLink());
-        startActivity(jump2WebView);
+        Jump2WebView.jump2Web(mContext, articles.get(i-1).getLink());
     }
+
 }
