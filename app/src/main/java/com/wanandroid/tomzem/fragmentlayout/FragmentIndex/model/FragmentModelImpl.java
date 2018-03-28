@@ -42,13 +42,7 @@ public class FragmentModelImpl implements FragmentModel{
                 }
                 if (response.body().getData() != null){
                     List<IndexImage> images = response.body().getData();
-                    List<String> image = new ArrayList<>();
-                    List<String> titles = new ArrayList<>();
-                    for (IndexImage indexImage: images) {
-                        image.add(indexImage.getImagePath());
-                        titles.add(indexImage.getTitle());
-                    }
-                    onImagesPathCallBack.onSeccess(image,titles);
+                    onImagesPathCallBack.onSeccess(images);
                 }else{
                     onImagesPathCallBack.onFailure();
                 }

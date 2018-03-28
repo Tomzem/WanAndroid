@@ -3,6 +3,7 @@ package com.wanandroid.tomzem.fragmentlayout.FragmentClass.view;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,11 +13,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wanandroid.tomzem.R;
+import com.wanandroid.tomzem.activity.ClassArticle.view.ArticleListActivity;
 import com.wanandroid.tomzem.adapter.ClassAdapter;
 import com.wanandroid.tomzem.base.BaseFragment;
 import com.wanandroid.tomzem.bean.ClassDatas;
+import com.wanandroid.tomzem.eventbus.ClassArticleEvent;
 import com.wanandroid.tomzem.fragmentlayout.FragmentClass.presenter.FragmentClassPresenterImpl;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.io.Serializable;
 import java.util.List;
 import java.util.Timer;
 
@@ -70,13 +76,19 @@ public class FragmentClass extends BaseFragment implements FragmentClassView{
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        showToast(model.getName());
+                        jump2Article(model);
                     }
                 });
             }
         });
 
         initData();
+    }
+
+    private void jump2Article(ClassDatas model){
+        Intent intent = new Intent(mContext, ArticleListActivity.class);
+        intent.putExtra("ClassBean", model);
+        this.getActivity().startActivityForResult(intent, 1);
     }
 
     private void initData() {

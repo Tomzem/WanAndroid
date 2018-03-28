@@ -2,10 +2,9 @@ package com.wanandroid.tomzem.activity.main;
 
 
 import android.content.Context;
-import android.provider.CalendarContract;
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.Layout;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -13,16 +12,10 @@ import android.widget.TextView;
 
 import com.wanandroid.tomzem.R;
 import com.wanandroid.tomzem.base.BaseActivity;
-import com.wanandroid.tomzem.eventbus.MainEvent;
 import com.wanandroid.tomzem.fragmentlayout.FragmentClass.view.FragmentClass;
 import com.wanandroid.tomzem.fragmentlayout.FragmentIndex.view.FragmentIndex;
 import com.wanandroid.tomzem.fragmentlayout.FragmentNavigation.view.FragmentNavigation;
 import com.wanandroid.tomzem.fragmentlayout.FragmentSelf.view.FragmentSelf;
-
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -175,16 +168,19 @@ public class MainActivity extends BaseActivity {
         mTvSelf.setTextColor(getResources().getColor(R.color.colorBlack));
     }
 
-    @Subscribe
-    public void onMessageEvent(MainEvent  event) {
-    }
-
-
     @Override
     protected void onStart() {
         super.onStart();
-        int flag = getIntent().getIntExtra("pageFlag", 0);
-        setSelect(flag);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode>=-1 || requestCode<4){
+            setSelect(requestCode);
+        }else{
+            setSelect(0);
+        }
     }
 
     @Override

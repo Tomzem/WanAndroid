@@ -1,6 +1,7 @@
 package com.wanandroid.tomzem.fragmentlayout.FragmentIndex.view;
 
 import com.wanandroid.tomzem.bean.IndexArticle;
+import com.wanandroid.tomzem.bean.IndexImage;
 
 import java.util.List;
 
@@ -9,6 +10,6 @@ import java.util.List;
  */
 
 public interface FragmentIndexView {
-    void showBanner(List<String> imagesPath,List<String> titles);
+    void showBanner(List<IndexImage> images);
     void showArticleList(List<IndexArticle> articleList);
 }
