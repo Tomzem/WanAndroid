@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        //setSelect(0);
+        setSelect(0);
     }
 
     @Override
@@ -119,7 +119,7 @@ public class MainActivity extends BaseActivity {
                 mTvNavigation.setTextColor(getResources().getColor(R.color.colorPrimary));
                 mImgButtonNavigation.setImageResource(R.mipmap.ic_navigation_select);
                 transaction.show(mFragmentNavigation);
-                mTvTitle.setText("导航");
+                mTvTitle.setText("项目");
                 break;
             case 3:
                 if (mFragmentSelf ==null){

@@ -78,7 +78,7 @@
             android:layout_marginTop="3dp"
             android:textSize="14dp"
             android:textColor="@color/colorBlack"
-            android:text="导航"/>
+            android:text="项目"/>
     </LinearLayout>
 
     <LinearLayout
