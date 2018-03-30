@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_marginBottom="2.5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="2.5dp"
+        android:background="@drawable/style_radius_shadow">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/img_project_pic"
+                android:layout_margin="5dp"
+                android:layout_width="120dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_test"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:padding="3dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_project_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="开源音乐播放器 YCAudioPlayer"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/tv_project_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:maxLines="5"
+                    android:text="音频播放器，基础播放功能有：播放，暂停，下一首，上一首；可以设置多种播放类型：顺序播放，随机播放，单曲循环；可以设置播放进度快慢，参考混沌大学APP；支持后台播放，可以扫描本地音"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_project_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2018-03-11"/>
+
+                    <ImageView
+                        android:id="@+id/img_project_zan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="16dp"
+                        android:src="@mipmap/ic_collection" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
