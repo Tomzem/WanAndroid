@@ -79,4 +79,6 @@ dependencies {
     compile 'com.wx.goodview:goodview:1.0.0'
     //伸缩Listview
     compile 'com.github.iammert:ExpandableLayout:1.4.1'
+    //tabLayout
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }
